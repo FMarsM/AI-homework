@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Аренда загородного коттеджа Чайка">
+    <meta name="keywords" content="Аренда, загородный дом, коттедж">
+    <link rel="stylesheet" type="text/css" href="assets\css\style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <title>Коттеджи "Чайка"</title>
+
+
+</head>
+<body>
+    <div class="main">
+        <div class="header">
+            <div class="logo">
+				<div class="logo_text">
+					<h1><a href="index.html">Коттеджи "Чайка" Казань</a></h1>
+					<h2>Проведите праздник с комфортом и уютом</h2>
+				</div>
+        <div class="language">
+          <button  onclick="document.location='index-eng.html'"><img src="assets\img\eng.png" width="30px" height="20px"></button>
+          <button  onclick="document.location='index.html'"><img src="assets\img\rus.png" width="30px" height="20px"></button>
+        </div>
+
+        <button id="navigation"></button>
+
+
+			</div>
+			<div class="menubar" id="menubar">
+				<ul class="menu">
+					<li class="selected"><a href="index.html">Главная</a></li>
+					<li><a href="chaika1.html">Чайка-1</a></li>
+					<li><a href="chaika2.html">Чайка-2</a></li>
+					<li><a href="chaika3.html">Чайка-3</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+				</ul>
+			</div>
+      <script>
+        let navigation = document.querySelector('#navigation');
+        document.addEventListener("click", function(e) {
+  let m = document.querySelector('.menubar');
+  if (e.target.id != 'navigation' && e.target.id != 'menubar') {
+    m.style.display = 'none';
+  } else if (e.target.id == 'navigation') {
+    m.style.display = (m.style.display != 'flex') ? 'flex' : 'none';
+  }
+  if (document.documentElement.clientWidth > 1280) {
+          m.style.display = 'block';
+        }
+});
+      </script>
+
+        </div>
+        <div class="site_content">
+            
+
+
+            <section id="slider_bl">
+                <div class="wrapper">
+                  <input checked type=radio name="slider" id="slide1" />
+                  <input type=radio name="slider" id="slide2" />
+                  <input type=radio name="slider" id="slide3" />
+                  <div class="slider-wrapper">
+                    <div class=inner>
+                      <article>
+                        <div class="info top-left">
+                          <h3>Чайка-1</h3></div>
+                        <img src="assets\img\111\main1.jpg" />
+                      </article>
+                      <article>
+                        <div class="info top-left">
+                          <h3>Чайка-2</h3></div>
+                        <img src="assets\img\222\main22.jpg" />
+                      </article>
+                      <article>
+                        <div class="info top-left">
+                          <h3>Чайка-3</h3></div>
+                        <img src="assets\img\333\12.jpg" />
+                      </article>
+                    </div>
+                  </div>
+                  <div class="slider-prev-next-control">
+                    <label for=slide1></label>
+                    <label for=slide2></label>
+                    <label for=slide3></label>
+                  </div>
+                  <div class="slider-dot-control">
+                    <label for=slide1></label>
+                    <label for=slide2></label>
+                    <label for=slide3></label>
+                  </div>
+                </div>
+            </section>
+            <div class="description_text">
+              <p>Если вы ищете чистый, новый и уютный гостевой дом, то это то что вам нужно! Гостевые дома "Чайка" в Казани предлагают вам комфортное проживание в 15 минутах от лечебных Голубых озёр!  </p>
+            </div>
+            <div class="map">
+              <h1 id="map_text">Где нас найти:<br></h1>
+              <div id="map_canvas">
+                <script> </script>
+                <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Aaf6804127d1ba4fef041e49f68e97fdd0a5c484bb4bc03cf2d71649ffe18ec1e&amp;width=500&amp;height=440&amp;lang=ru_RU&amp;scroll=true"></script>
+              </div>
+            
+            </div>
+           
+
+        </div>
+
+        <div class="footer">
+            <a href="contacts.html">Контакты</a><br>
+            <a href="https://wa.me/79655908129">WhatsApp   </a>
+            <a href="https://t.me/leviy_4el">   Telegram</a><br>
+            <p>Marsel Fatkhullin 2023</p>
+
+        </div>
+    </div>
+    
+</body>
+</html>

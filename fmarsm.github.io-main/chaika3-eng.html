@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Аренда загородного коттеджа Чайка">
+    <meta name="keywords" content="Аренда, загородный дом, коттедж">
+    <link rel="stylesheet" type="text/css" href="assets\css\style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <title>Cottages "Chaika"</title>
+</head>
+<body>
+    <div class="main">
+      <div class="header">
+        <div class="logo">
+    <div class="logo_text">
+      <h1><a href="index-eng.html">Cottages "Chaika" Kazan</a></h1>
+      <h2>Spend the holiday with comfort and coziness</h2>
+    </div>
+    <div class="language">
+      <button  onclick="document.location='chaika3-eng.html'"><img src="assets\img\eng.png" width="30px" height="20px"></button>
+      <button  onclick="document.location='chaika3.html'"><img src="assets\img\rus.png" width="30px" height="20px"></button>
+
+    </div>
+
+    <button id="navigation"></button>
+
+
+  </div>
+  <div class="menubar" id="menubar">
+    <ul class="menu">
+      <li ><a href="index-eng.html">Main</a></li>
+      <li><a href="chaika1-eng.html">Chaika-1</a></li>
+      <li><a href="chaika2-eng.html">Chaika-2</a></li>
+      <li class="selected"><a href="chaika3-eng.html">Chaika-3</a></li>
+      <li><a href="contacts-eng.html">Contacts</a></li>
+    </ul>
+  </div>
+  <script>
+    let navigation = document.querySelector('#navigation');
+    document.addEventListener("click", function(e) {
+let m = document.querySelector('.menubar');
+if (e.target.id != 'navigation' && e.target.id != 'menubar') {
+m.style.display = 'none';
+} else if (e.target.id == 'navigation') {
+m.style.display = (m.style.display != 'flex') ? 'flex' : 'none';
+}
+if (document.documentElement.clientWidth > 1280) {
+      m.style.display = 'block';
+    }
+});
+  </script>
+
+    </div>
+        <div class="site_content">
+          <section id="slider_bl">
+            <div class="wrapper">
+              <input checked type=radio name="slider" id="slide1" />
+              <input type=radio name="slider" id="slide2" />
+              <input type=radio name="slider" id="slide3" />
+              <input type=radio name="slider" id="slide4" />
+              <input type=radio name="slider" id="slide5" />
+              <input type=radio name="slider" id="slide6" />
+              <input type=radio name="slider" id="slide7" />
+              <input type=radio name="slider" id="slide8" />
+              <input type=radio name="slider" id="slide9" />
+              <input type=radio name="slider" id="slide10" />
+              <input type=radio name="slider" id="slide11" />
+              <input type=radio name="slider" id="slide12" />
+              <input type=radio name="slider" id="slide13" />
+              <input type=radio name="slider" id="slide14" />
+              <input type=radio name="slider" id="slide15" />
+              <input type=radio name="slider" id="slide16" />
+              <div class="slider-wrapper">
+                <div class=inner>
+                  <article>
+                    <img src="assets\img\333\1.jpg" />
+                  </article>
+                  <article>
+                    <img src="assets\img\333\2.jpg" />
+                  </article>
+                  <article>
+                    <img src="assets\img\333\3.jpg" />
+                  </article>
+                  <article>
+                    <img src="assets\img\333\4.jpg" />
+                  </article>
+                  <article>
+                    <img src="assets\img\333\5.jpg" />
+                  </article>
+                  <article>
+                    <img src="assets\img\333\6.jpg" />
+                  </article>
+                  <article>
+                    <img src="assets\img\333\7.jpg" />
+                  </article>
+                  <article>
+                    <img src="assets\img\333\8.jpg" />
+                  </article>
+                  <article>
+                    <img src="assets\img\333\9.jpg" />
+                  </article>
+                  <article>
+                    <img src="assets\img\333\10.jpg" />
+                  </article>
+                  <article>
+                    <img src="assets\img\333\11.jpg" />
+                  </article>
+                  <article>
+                    <img src="assets\img\333\12.jpg" />
+                  </article>
+                  <article>
+                    <img src="assets\img\333\13.jpg" />
+                  </article>
+                  <article>
+                    <img src="assets\img\333\14.jpg" />
+                  </article>
+                  <article>
+                    <img src="assets\img\333\15.jpg" />
+                  </article>
+                  <article>
+                    <img src="assets\img\333\16.jpg" />
+                  </article>
+                </div>
+              </div>
+              <div class="slider-prev-next-control">
+                <label for=slide1></label>
+                <label for=slide2></label>
+                <label for=slide3></label>
+                <label for=slide4></label>
+                <label for=slide5></label>
+                <label for=slide6></label>
+                <label for=slide7></label>
+                <label for=slide8></label>
+                <label for=slide9></label>
+                <label for=slide10></label>
+                <label for=slide11></label>
+                <label for=slide12></label>
+                <label for=slide13></label>
+                <label for=slide14></label>
+                <label for=slide15></label>
+                <label for=slide16></label>
+              </div>
+              <div class="slider-dot-control">
+                <label for=slide1></label>
+                <label for=slide2></label>
+                <label for=slide3></label>
+                <label for=slide4></label>
+                <label for=slide5></label>
+                <label for=slide6></label>
+                <label for=slide7></label>
+                <label for=slide8></label>
+                <label for=slide9></label>
+                <label for=slide10></label>
+                <label for=slide11></label>
+                <label for=slide12></label>
+                <label for=slide13></label>
+                <label for=slide14></label>
+                <label for=slide15></label>
+                <label for=slide16></label>
+              </div>
+            </div>
+            <div class="description_text">
+              <h2>About:</h2>
+              <p>Two-storey brick house of 120 sq.m. Bavarian masonry.
+                The village of Shcherbakovo SNT Chaika is located.
+                Ground floor - living room of 40 sq.m. soft corner sofa, banquet table for 20 people, modern music equipment, TV 43", kitchen equipped with household appliances, bathroom.
+                Second floor - three bedrooms (2+2) family accommodation, a hall with a sofa, a total of 12 beds in the house, a bathroom, a shower room.
+                On-site Parking for 4 cars, a playground with a barbecue.
+                </p>
+            </div>
+            <div class="dop">
+              <h2>Additions:</h2>
+              <ul class="dop_spisok">
+                <li><p>Number of rooms: 3</p></li>
+                <li><p>House area: 120 m²</p></li>
+                <li><p>Plot area: 8 acres</p></li>
+                <li><p>Floors: 2</p></li>
+                <li><p>Bathroom: in the house</p></li>
+                <li><p>Appliances: refrigerator, stove, microwave, washing machine, TV, iron</p></li>
+                <li><p>Internet and TV: TV</p></li>
+              </ul>
+              <div>
+                <h2>Rules:</h2>
+                <ul class="dop_spisok">
+                  <li><p>Number of guests: 8 and more</p></li>
+                  <li><p>Children: yes</p></li>
+                  <li><p>Pets: yes</p></li>
+                  <li><p>Smoking allowed: no</p></li>
+                  <li><p>Parties allowed: yes</p></li>
+                  <li><p>Accounting documents: yes</p></li>
+                </ul>
+              </div>
+            </div>
+            <table>
+              <tr><th>Number of guests</th><th>Price(Mon-Thu / Fri-Sat / Sun)</th></tr> 
+              <tr><td>up to 5 people</td><td>5000 / 7000 / 6000</td></tr>
+              <tr><td>up to 10 people</td><td>8000 / 10000 / 9000</td></tr>
+              <tr><td>up to 15 people</td><td>10000 / 12000 / 11000</td></tr>
+              <tr><td>up to 20 people</td><td>12000 / 14000 / 13000</td></tr>
+              <tr><td>up to 25 people</td><td>14000 / 16000 / 15000</td></tr>
+              <tr><td>up to 30 people</td><td>15000 / 17000 / 16000</td></tr> 
+              </table>
+
+        </div>
+
+        <div class="footer">
+          <a href="contacts-eng.html">Contacts</a><br>
+          <a href="https://wa.me/79655908129">WhatsApp   </a>
+          <a href="https://t.me/leviy_4el">   Telegram</a><br>
+          <p>Marsel Fatkhullin 2023</p>
+
+      </div>
+    </div>
+    
+</body>
+</html>
