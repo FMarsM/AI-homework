@@ -41,3 +41,27 @@
 - **Зачем:** планировался для `gh pr create`, чтобы открыть pull request на изменения сессии
 - **Область:** проект
 - **Проверка:** `gh --version` — `command not found` и в Bash, и в PowerShell. Ставить не стали: решили коммитить и пушить изменения прямо в `main` без PR, отдельной feature-ветки в проекте пока нет.
+
+## 2026-08-16 · Сессия 2 · Node.js (OpenJS.NodeJS.LTS) v24.19.0
+
+- **Тип:** CLI/рантайм
+- **Установка:** `winget install OpenJS.NodeJS.LTS --silent --accept-package-agreements --accept-source-agreements` (с явным подтверждением пользователя через вопрос — установка нового ПО в систему, а не только в проект)
+- **Зачем:** до этой сессии `node`/`npm`/`npx` отсутствовали и в Bash, и в PowerShell (см. известные проблемы в STATE.md сессии 1); Node нужен как база для `npm`/`npx` и Playwright, согласованных в `AGENTS.md`
+- **Область:** глобально (система)
+- **Проверка:** `node --version` → `v24.19.0`, `npm --version` → `11.17.0` (после обновления `$env:Path` в текущей PowerShell-сессии)
+
+## 2026-08-16 · Сессия 2 · @playwright/test v1.x + Chromium
+
+- **Тип:** библиотека/CLI
+- **Установка:** `npm init -y` и `npm install -D @playwright/test` в `1st-attempt/tests`, затем `npx playwright install chromium` (браузер Chrome for Testing 151.0.7922.34, ~192 МиБ)
+- **Зачем:** автотест на найденный баг (`1st-attempt/tests/guest-count.spec.js`), согласовано в `AGENTS.md` как разрешённая зависимость проекта
+- **Область:** проект (`1st-attempt/tests/`)
+- **Проверка:** `npx playwright test guest-count.spec.js --reporter=list` — реальный вывод: `2 passed`, `1 failed` на целевом тесте с трейсом ошибки
+
+## 2026-08-16 · Сессия 2 · Browser MCP `screenshot` — не заработал в этой среде
+
+- **Тип:** MCP-инструмент (встроенный)
+- **Установка:** не требовалась, инструмент штатно доступен
+- **Зачем:** нужен был для скриншотов к каждому баг-репорту по формату `AGENTS.md`
+- **Область:** сессия
+- **Проверка:** каждый вызов `computer` → `screenshot` в этой сессии возвращал ошибку `Screenshot timed out after 5s: the Browser pane is not displayed, so the page is not compositing frames`, даже после `resize_window` и `wait`. Тупиковая попытка — заменил на подтверждение через `javascript_tool`/`read_page`/`read_network_requests` (DOM- и JS-логи), формат баг-репорта это допускает.
