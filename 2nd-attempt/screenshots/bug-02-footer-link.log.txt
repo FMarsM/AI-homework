@@ -1,0 +1,5 @@
+href атрибут ссылки: "#"
+URL до клика: http://localhost:8080/chaika1.html
+URL после клика: http://localhost:8080/chaika1.html#
+Ожидалось: переход на http://localhost:8080/contacts.html
+Факт: остались на той же странице (добавился только "#")

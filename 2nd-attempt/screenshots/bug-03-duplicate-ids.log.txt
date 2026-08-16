@@ -1,0 +1,39 @@
+Всего полей формы: 7
+Уникальных id: 1
+[
+  {
+    "tag": "INPUT",
+    "name": "Name",
+    "id": "text"
+  },
+  {
+    "tag": "INPUT",
+    "name": "Phone_number",
+    "id": "text"
+  },
+  {
+    "tag": "INPUT",
+    "name": "Date1",
+    "id": "text"
+  },
+  {
+    "tag": "INPUT",
+    "name": "Date2",
+    "id": "text"
+  },
+  {
+    "tag": "INPUT",
+    "name": "Number_of_clients",
+    "id": "text"
+  },
+  {
+    "tag": "SELECT",
+    "name": "House",
+    "id": "text"
+  },
+  {
+    "tag": "TEXTAREA",
+    "name": "Commentaries",
+    "id": "text"
+  }
+]
