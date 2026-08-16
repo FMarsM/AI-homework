@@ -41,3 +41,53 @@
 - **Зачем:** планировался для `gh pr create`, чтобы открыть pull request на изменения сессии
 - **Область:** проект
 - **Проверка:** `gh --version` — `command not found` и в Bash, и в PowerShell. Ставить не стали: решили коммитить и пушить изменения прямо в `main` без PR, отдельной feature-ветки в проекте пока нет.
+
+## 2026-08-16 · Сессия 2 · Node.js v24.19.0 / npm 11.17.0 — уже стоял в системе, не был в PATH
+
+- **Тип:** CLI/рантайм
+- **Установка:** заново не ставился — обнаружен по факту в
+  `C:\Program Files\nodejs\` (`node.exe`, `npm.cmd`). В Bash и в PowerShell по
+  умолчанию `node`/`npm` не резолвились («command not found» /
+  «CommandNotFoundException»). Рабочий обход — вызов по полному пути или
+  `$env:PATH += ";C:\Program Files\nodejs"` в начале PowerShell-команды
+  (действует только на сессию инструмента, не сохраняется между вызовами).
+- **Зачем:** нужен как рантайм для `npm`/`npx` и Playwright.
+- **Область:** сессия/проект — PATH не патчился глобально, только точечно
+  перед каждой командой из папки `2nd-attempt/playwright`.
+- **Проверка:** `& "C:\Program Files\nodejs\node.exe" -v` → `v24.19.0`;
+  `& "C:\Program Files\nodejs\npm.cmd" -v` → `11.17.0`.
+
+## 2026-08-16 · Сессия 2 · @playwright/test v1.62.1 + Chromium
+
+- **Тип:** библиотека (dev-зависимость) + браузерный движок
+- **Установка:** в папке `2nd-attempt/playwright/`:
+  `npm init -y`; `npm install -D @playwright/test`;
+  `npx playwright install chromium`.
+- **Зачем:** единственный обязательный по заданию автотест на найденный
+  баг (`bug-01-number-field.spec.js`) и скриншоты сайта на 4 ширинах —
+  как замена не заработавшему в этой сессии инструменту скриншотов
+  встроенного Browser MCP (см. запись ниже).
+- **Область:** проект, изолированно в `2nd-attempt/playwright/`
+  (`node_modules/` и `test-results/` добавлены в локальный `.gitignore`,
+  в репозиторий не коммитятся — переустанавливаются через `npm install`).
+- **Проверка:** `npx playwright --version` → `Version 1.62.1`;
+  `npx playwright test` — реальные прогоны с выводом: 8/8 passed для
+  скриншот-теста по ширинам, 1 failed (ожидаемо, багрепорт BUG-01) +
+  2 passed для вспомогательных evidence-тестов.
+
+## 2026-08-16 · Сессия 2 · Browser MCP `screenshot`/`zoom` — не подошло
+
+- **Тип:** MCP-инструмент (уже подключён в среде, отдельно не ставился)
+- **Установка:** не требовалась
+- **Зачем:** планировалось делать снимки сайта на 4 ширинах и визуальные
+  подтверждения багов через встроенный инструмент Browser MCP.
+- **Область:** сессия
+- **Проверка:** `computer{action:"screenshot"}` и `zoom` стабильно падали
+  с ошибкой «the Browser pane is not displayed, so the page is not
+  compositing frames» на протяжении всей сессии, включая после
+  `navigate`/`wait`. Остальные функции Browser MCP (`read_page`,
+  `read_console_messages`, `read_network_requests`, `javascript_tool`,
+  `resize_window`) работали штатно и использовались для первичной
+  разведки багов. Тупиковая попытка — от MCP-скриншотов отказались,
+  визуальные доказательства для тест-плана и баг-репортов сделаны через
+  `page.screenshot()` самого Playwright (см. запись выше).
