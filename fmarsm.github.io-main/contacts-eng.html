@@ -91,6 +91,23 @@
   }
 </script>
 <script>
+  const dateIn = document.querySelector('input[name="Date1"]');
+  const dateOut = document.querySelector('input[name="Date2"]');
+
+  function checkDates() {
+    dateOut.min = dateIn.value;
+    if (dateIn.value && dateOut.value && dateOut.value < dateIn.value) {
+      dateOut.setCustomValidity('Departure date cannot be earlier than the arrival date');
+    } else {
+      dateOut.setCustomValidity('');
+    }
+  }
+
+  dateIn.addEventListener('input', checkDates);
+  dateOut.addEventListener('input', checkDates);
+  checkDates();
+</script>
+<script>
   const scriptURL = 'https://script.google.com/macros/s/AKfycbw3THh1AChjIrimh8HjZsrf6aMr1avl_7hVCiONeFhGXmN8B9uHffW1Ydo5yfv0-i_M/exec'
   const form = document.forms['submit-to-google-sheet']
   const success = document.getElementById('success');
