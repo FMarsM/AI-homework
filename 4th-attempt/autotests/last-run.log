@@ -1,0 +1,33 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.2, pytest-9.0.2, pluggy-1.6.0 -- C:\Users\Марсель\AppData\Local\Programs\Python\Python313\python.exe
+cachedir: .pytest_cache
+rootdir: C:\ClaudeHomework\TestTask\4th-attempt\autotests
+plugins: base-url-2.1.0, playwright-0.9.0
+collecting ... collected 4 items
+
+test_booking_dates.py::test_valid_date_range_is_accepted[chromium] PASSED [ 25%]
+test_booking_dates.py::test_departure_before_arrival_is_rejected[chromium] FAILED [ 50%]
+test_booking_dates.py::test_departure_field_is_limited_by_arrival_date[chromium] FAILED [ 75%]
+test_booking_dates.py::test_arrival_date_in_the_past_is_rejected[chromium] FAILED [100%]
+
+================================== FAILURES ===================================
+E   AssertionError: BUG-01: форма с датой отъезда 19.08.2026 раньше даты заезда 28.08.2026 считается валидной и отправляется
+    assert not True
+     +  where True = form_is_valid(<Page url='http://127.0.0.1:58228/contacts.html'>)
+C:\ClaudeHomework\TestTask\4th-attempt\autotests\test_booking_dates.py:65: AssertionError: BUG-01: форма с датой отъезда 19.08.2026 раньше даты заезда 28.08.2026 считается валидной и отправляется
+E   AssertionError: BUG-01: ожидался min='2026-08-28' у поля «Дата отъезда», получено None
+    assert None == '2026-08-28'
+     +  where None = get_attribute("form[name='submit-to-google-sheet'] input[name='Date2']", 'min')
+     +    where get_attribute = <Page url='http://127.0.0.1:58228/contacts.html'>.get_attribute
+     +  and   '2026-08-28' = <built-in method isoformat of datetime.date object at 0x00000250056D0A50>()
+     +    where <built-in method isoformat of datetime.date object at 0x00000250056D0A50> = datetime.date(2026, 8, 28).isoformat
+C:\ClaudeHomework\TestTask\4th-attempt\autotests\test_booking_dates.py:90: AssertionError: BUG-01: ожидался min='2026-08-28' у поля «Дата отъезда», получено None
+E   AssertionError: BUG-01: форма с датой заезда 01.01.2000 в прошлом считается валидной
+    assert not True
+     +  where True = form_is_valid(<Page url='http://127.0.0.1:58228/contacts.html'>)
+C:\ClaudeHomework\TestTask\4th-attempt\autotests\test_booking_dates.py:103: AssertionError: BUG-01: форма с датой заезда 01.01.2000 в прошлом считается валидной
+=========================== short test summary info ===========================
+FAILED test_booking_dates.py::test_departure_before_arrival_is_rejected[chromium]
+FAILED test_booking_dates.py::test_departure_field_is_limited_by_arrival_date[chromium]
+FAILED test_booking_dates.py::test_arrival_date_in_the_past_is_rejected[chromium]
+========================= 3 failed, 1 passed in 2.58s =========================
