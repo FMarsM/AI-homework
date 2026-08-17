@@ -1,0 +1,8 @@
+# Зависимости Playwright — восстанавливаются `npm install` по package-lock.json
+qa/playwright/node_modules/
+
+# Служебный вывод прогонов Playwright: снимки и error-context упавших тестов.
+# Доказательства к багам лежат отдельно, в qa/screenshots/ с говорящими именами.
+qa/playwright/test-results/
+qa/playwright/playwright-report/
+qa/playwright/blob-report/
